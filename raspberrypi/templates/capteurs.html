@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Capteurs Data</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'capteurs.css' %}">
+        <a href="{% url 'raspberrypi:camera_view' %}" class="navigate-button">Aller vers page de Camera</a>
+
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data" id="image-upload-form" class="form-container">
+        {% csrf_token %}
+        <input type="file" name="image" accept="image/*" id="image-input" class="input-file">
+        <label for="image-input" class="custom-button">Upload Image</label>
+        <div class="file-name" id="file-name"></div>
+        <button type="submit" class="save-button">Save Image</button>
+    </form>
+
+
+
+    <h1>Capteurs Data</h1>
+    <div class="container">
+        <div class="left-column">
+            <h2>Capteurs Data</h2>
+            {% for capteur in capteurs %}
+                <div class="card">
+                    <h3>Capteur Data</h3>
+                    <ul>
+                        <li class="temperature">Temperature: {{ capteur.temperature }}°C</li>
+                        <li class="humidity">Humidity: {{ capteur.humidity }}%</li>
+                        <li class="gas">Gas: {% if capteur.gas_detected %}Oui{% else %}Non{% endif %}</li>
+                        <li>Temps: {{ capteur.timestamp }}</li>
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="right-column">
+            <h2>Face Recognition</h2>
+            {% for recognition in face_recognitions %}
+                <div class="card">
+                    <h3>Face Recognition Data</h3>
+                    <ul>
+                        <li class="identity">Identity: {{ recognition.face_recognition_identity }}</li>
+                        <li>Time: {{ recognition.timestamp }}</li>
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        // Function to refresh the page
+        function refreshPage() {
+            location.reload();
+        }
+
+        // Set an interval to call the refreshPage function every 10 seconds (10000 milliseconds)
+        setInterval(refreshPage, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Camera Streaming</title>
+    <a href="{% url 'raspberrypi:capteurs' %}" class="navigate-button">Aller vers page de Camera</a>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/camera.css' %}">
+</head>
+<body>
+    <h1>Camera Streaming Example</h1>
+    <img src="{% url 'raspberrypi:live_stream' %}" alt="Live Stream" />
+
+    <form method="post" action="{% url 'raspberrypi:camera_view' %}">
+        {% csrf_token %}
+        <input type="text" name="user_input" placeholder="Enter some input">
+        <button type="submit" id="capture-button">Capture Image</button>
+    </form>
+</body>
+</html>

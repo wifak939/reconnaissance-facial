@@ -1,0 +1,113 @@
+/* capteurs.css */
+
+.container {
+    display: flex;
+}
+
+.left-column {
+    width: 50%;
+    float: left;
+}
+
+.right-column {
+    width: 50%;
+    float: left;
+}
+
+.card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+}
+
+.card h3 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.card li {
+    margin: 5px 0;
+}
+
+/* Style for temperature */
+.temperature {
+    background-color: #ff9999;
+    color: #fff;
+    padding: 5px;
+    font-weight: bold;
+}
+
+/* Style for humidity */
+.humidity {
+    background-color: #99ccff;
+    color: #fff;
+    padding: 5px;
+    font-weight: bold;
+}
+
+/* Style for gas */
+.gas {
+    background-color: #99ff99;
+    color: #000;
+    padding: 5px;
+    font-weight: bold;
+}
+
+/* Style for face recognition identity */
+.identity {
+    background-color: #ffcc00; /* Change the background color for identity */
+    color: #fff;
+    padding: 5px;
+    font-weight: bold;
+}
+
+/* Style the form container */
+.form-container {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Style the file input element */
+input[type="file"] {
+    display: none; /* Hide the default file input */
+}
+
+/* Style the custom button */
+.custom-button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the file name display */
+.file-name {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Style the Save Image button */
+.save-button {
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
